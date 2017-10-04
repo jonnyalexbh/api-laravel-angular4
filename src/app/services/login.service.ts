@@ -5,4 +5,8 @@ export class LoginService {
 
   constructor() { }
 
+  helloWorld(){
+    return "Hello world from service";
+  }
+
 }
