@@ -1,0 +1,16 @@
+<h3>Component posts</h3>
+
+<table class="table table-condensed table-hover" width="100%">
+  <tr>
+    <td>id</td>
+    <td>title</td>
+    <td>body</td>
+    <td>user</td>
+  </tr>
+  <tr *ngFor="let row of posts">
+    <td>{{ row.id }}</td>
+    <td>{{ row.title }}</td>
+    <td>{{ row.body }}</td>
+    <td>{{ row.userId }}</td>
+  </tr>
+</table>
