@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-// import HttpModule
-import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms'; // import FormsModule
+import { HttpModule } from '@angular/http'; // import HttpModule
 
 // routes
 import { RouterModule } from '@angular/router';
@@ -22,6 +22,7 @@ import { PostComponent } from './components/post.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpModule,
     RouterModule.forRoot(
       routes,

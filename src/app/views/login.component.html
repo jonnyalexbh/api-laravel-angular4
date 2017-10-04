@@ -1,1 +1,19 @@
-<h3>Component login</h3>
+<div class="col-md-5">
+
+  <h3>Login</h3>
+  <form (ngSubmit)="sendLogin()" #formLogin="ngForm">
+    <div class="form-group">
+      <label for="user">Email/User name</label>
+      <input type="text" class="form-control" name="user" [(ngModel)]="login.user">
+    </div>
+
+    <div class="form-group">
+      <label for="pass">Password</label>
+      <input type="text" class="form-control" name="pass" [(ngModel)]="login.pass">
+    </div>
+
+    <button type="submit" class="btn btn-primary" >Submit</button>
+
+  </form>
+
+</div>

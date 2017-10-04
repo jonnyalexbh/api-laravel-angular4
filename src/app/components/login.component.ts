@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LoginService } from '../services/login.service';
+import { Login } from '../models/login';
 
 @Component({
   selector: 'app-login',
@@ -9,13 +10,19 @@ import { LoginService } from '../services/login.service';
 export class LoginComponent {
 
   public show_service:string;
-  title = 'Login app';
+  public login: Login;
 
   constructor(
-    private _loginService:LoginService) { }
+    private _loginService:LoginService) {
+      this.login = new Login('','');
+    }
 
     ngOnInit(){
       this.show_service = this._loginService.helloWorld();
+    }
+
+    sendLogin(){
+      console.log(this.login);
     }
 
   }
