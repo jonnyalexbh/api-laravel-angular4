@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { environment } from '../../environments/environment';
 
@@ -23,6 +23,17 @@ export class LoginService {
     };
 
     return this._http.post(environment.urlApi+'/login', body);
+  }
+
+  getUser(){
+
+    var headers = new Headers({
+      "Accept": "application/json",
+      "Authorization": "Bearer " + localStorage.getItem('id_token'),
+    });
+
+    return this._http.get(environment.urlApi+'/user', { headers: headers }).map(res => res.json());
+
   }
 
 }
