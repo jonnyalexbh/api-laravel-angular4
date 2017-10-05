@@ -10,6 +10,7 @@ import { routes } from './app.routes';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home.component';
+import { MainComponent } from './components/main.component';
 import { LoginComponent } from './components/login.component';
 import { PostComponent } from './components/post.component';
 
@@ -17,6 +18,7 @@ import { PostComponent } from './components/post.component';
   declarations: [
     AppComponent,
     HomeComponent,
+    MainComponent,
     LoginComponent,
     PostComponent
   ],
