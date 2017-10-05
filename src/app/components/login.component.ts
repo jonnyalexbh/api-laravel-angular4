@@ -11,6 +11,7 @@ export class LoginComponent {
 
   public show_service:string;
   public login: Login;
+  public person:string;
 
   constructor(
     private _loginService:LoginService) {
@@ -22,7 +23,9 @@ export class LoginComponent {
     }
 
     sendLogin(){
-      console.log(this.login);
+      this._loginService.getLogin(this.login).subscribe( response => {
+        console.log(response);
+      })
     }
 
   }
