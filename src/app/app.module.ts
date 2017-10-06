@@ -10,6 +10,7 @@ import { routes } from './app.routes';
 
 // guards
 import { LoginGuard } from './guards/login.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home.component';
@@ -34,7 +35,7 @@ import { PostComponent } from './components/post.component';
       { enableTracing: false } // <-- debugging purposes only
     )
   ],
-  providers: [LoginGuard],
+  providers: [LoginGuard, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
