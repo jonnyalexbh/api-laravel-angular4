@@ -8,6 +8,9 @@ import { HttpModule } from '@angular/http'; // import HttpModule
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 
+// guards
+import { LoginGuard } from './guards/login.guard';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home.component';
 import { MainComponent } from './components/main.component';
@@ -31,7 +34,7 @@ import { PostComponent } from './components/post.component';
       { enableTracing: false } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

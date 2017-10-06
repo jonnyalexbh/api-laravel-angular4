@@ -28,7 +28,6 @@ export class LoginComponent {
   * ngOnInit
   */
   ngOnInit(){
-    this._loginService.logout();
     this.show_service = this._loginService.helloWorld();
   }
 

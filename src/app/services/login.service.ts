@@ -46,11 +46,4 @@ export class LoginService {
 
   }
 
-  /**
-  * logout
-  */
-  public logout() {
-    localStorage.removeItem('id_token');  // remove token from localStorage
-  }
-
 }
