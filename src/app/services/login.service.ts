@@ -39,11 +39,25 @@ export class LoginService {
 
     var headers = new Headers({
       "Accept": "application/json",
-      "Authorization": "Bearer " + localStorage.getItem('id_token'),
+      "Authorization": "Bearer " + this.getToken(),
     });
 
     return this._http.get(environment.urlApi+'/user', { headers: headers }).map(res => res.json());
 
+  }
+
+  /**
+  * getToken
+  */
+  getToken() {
+    return localStorage.getItem('id_token');
+  }
+
+  /**
+  * isLogin
+  */
+  isLogin(): boolean {
+    return this.getToken() != null;
   }
 
 }

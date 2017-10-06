@@ -1,0 +1,18 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Angular4</a>
+    </div>
+    <ul *ngIf="isLogin() == true" class="nav navbar-nav">
+      <li [routerLinkActive]="['active']"><a [routerLink]="['/main']">Main</a></li>
+      <li><a>Products</a></li>
+      <li><a>Categories</a></li>
+      <li [routerLinkActive]="['active']"><a [routerLink]="['/posts']">Posts</a></li>
+      <li><a (click)="logout()">Logout</a></li>
+    </ul>
+    <ul *ngIf="isLogin() == false" class="nav navbar-nav">
+      <li [routerLinkActive]="['active']"><a [routerLink]="['/home']">Home</a></li>
+      <li [routerLinkActive]="['active']"><a [routerLink]="['/login']">Login</a></li>
+    </ul>
+  </div>
+</nav>
