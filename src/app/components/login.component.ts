@@ -14,6 +14,9 @@ export class LoginComponent {
   public login: Login;
   public person:string;
 
+  /**
+  * constructor
+  */
   constructor(
     private _router: Router,
     private _loginService:LoginService
@@ -21,17 +24,26 @@ export class LoginComponent {
     this.login = new Login('','');
   }
 
+  /**
+  * ngOnInit
+  */
   ngOnInit(){
+    this._loginService.logout();
     this.show_service = this._loginService.helloWorld();
   }
 
+  /**
+  * sendLogin
+  */
   sendLogin(){
-    this._loginService.getLogin(this.login)
-    .subscribe( response => {
-      console.log(response);
-      localStorage.setItem('id_token', response.json().access_token);
-      this._router.navigate(['main']);
-    })
-  }
+    this._loginService.getLogin(this.login).subscribe(
+      response => {
+        localStorage.setItem('id_token', response.access_token);
+        this._router.navigate(['main']);
+      },
+      error => {
+        console.log(<any>error);
+      });
+    }
 
-}
+  }

@@ -10,10 +10,16 @@ export class MainComponent {
 
   public name:string;
 
+  /**
+  * constructor
+  */
   constructor(
     private _loginService: LoginService
   ) { }
 
+  /**
+  * ngOnInit
+  */
   ngOnInit() {
 
     if(localStorage.getItem('id_token') != null)
@@ -21,10 +27,12 @@ export class MainComponent {
 
   }
 
+  /**
+  * getUser
+  */
   getUser(){
     this._loginService.getUser().subscribe(
       result => {
-        console.log(result);
         this.name = result.name;
       },
       error => {

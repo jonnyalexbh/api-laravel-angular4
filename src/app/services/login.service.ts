@@ -10,10 +10,16 @@ export class LoginService {
     public _http: Http
   ) { }
 
+  /**
+  * helloWorld
+  */
   helloWorld(){
     return "Hello world from service";
   }
 
+  /**
+  * getLogin
+  */
   getLogin(data){
 
     const body =
@@ -22,9 +28,13 @@ export class LoginService {
       password: data.pass
     };
 
-    return this._http.post(environment.urlApi+'/login', body);
+    return this._http.post(environment.urlApi+'/login', body)
+    .map(res => res.json());
   }
 
+  /**
+  * getUser
+  */
   getUser(){
 
     var headers = new Headers({
@@ -34,6 +44,13 @@ export class LoginService {
 
     return this._http.get(environment.urlApi+'/user', { headers: headers }).map(res => res.json());
 
+  }
+
+  /**
+  * logout
+  */
+  public logout() {
+    localStorage.removeItem('id_token');  // remove token from localStorage
   }
 
 }
